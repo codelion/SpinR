@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="OcamlProjectSettings">
+	<section name="OcamlbuildSettings">
+		<item value="" key="ocamlbuildProjectLinkerFlags"/>
+		<item value="str,site-lib/extlib/extLib" key="ocamlbuildProjectLibs"/>
+		<item value="" key="ocamlbuildProjectOtherFlags"/>
+		<item value="-I,+site-lib/extlib" key="ocamlbuildProjectCompilerFlags"/>
+		<item value="true" key="ocamlbuildGenerateTypeInfo"/>
+		<item value="example.d.byte,example.native,spinmodel.d.byte,spinmodel.native,dppgenerator.d.byte,dppgenerator.native" key="ocamlbuildProjectTargets"/>
+	</section>
+</section>

@@ -1,0 +1,5 @@
+.
+/usr/lib/ocaml
+examples
+examples/dppgenerator
+examples/spinmodel

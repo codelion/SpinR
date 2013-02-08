@@ -1,0 +1,16 @@
+#Fri Feb 08 14:35:31 SGT 2013
+compil_mode//_build/examples/dppgenerator/dppgenerator.d.byte=byte-code
+compil_mode//_build/examples/dppgenerator/dppgenerator.native=native
+compil_mode//_build/examples/example.byte=byte-code
+compil_mode//_build/examples/example.d.byte=byte-code
+compil_mode//_build/examples/example.native=native
+compil_mode//_build/examples/spinmodel/spinmodel.d.byte=byte-code
+compil_mode//_build/examples/spinmodel/spinmodel.native=native
+compil_mode/dppgenerator.d.byte=byte-code
+compil_mode/dppgenerator.native=native
+compil_mode/example.byte=byte-code
+compil_mode/example.d.byte=byte-code
+compil_mode/example.native=native
+compil_mode/spinmodel.d.byte=byte-code
+compil_mode/spinmodel.native=native
+eclipse.preferences.version=1
