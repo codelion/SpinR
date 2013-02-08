@@ -10,3 +10,4 @@
 *.byte
 *.native
 *.pmo
+_build/
