@@ -44,7 +44,7 @@ Copyright (C) 2010 - 2012 TUM, Chair of Robotics and Embedded Systems\n"
 let options = OptParser.make ()
 
 let parse_cmdline () =
-   let open OptParser in
+   let open OptParser in 
    let () = add options ~short_name:'V' ~long_name:"version" ~help:"return the version" version in
    let () = add options ~short_name:'o' ~long_name:"output" ~help:"target file" output in
    OptParse.OptParser.parse_argv options
