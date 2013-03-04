@@ -377,3 +377,12 @@ module Normalization :
     val atomic_section_model : Model.t -> Model.t
   end
 
+(** Refinement Calculus *)	
+module Refine:
+	sig
+	  val translate_model : Model.t -> Refine.c_prog
+		val string_of_prog : Refine.c_prog -> string
+	end
+	
+	
+

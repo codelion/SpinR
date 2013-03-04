@@ -17,6 +17,6 @@ let _ =
    let p1 = P.Process.create ~active:true ~locals:ds1 (id "R1") [a;s;a] in
    let ps = P.Model.add (P.Model.add P.Model.empty p0) p1 in
    let () = P.Model.to_channel stdout ps in
-	 let oc = open_out_bin "example.in" in
+	 let oc = open_out_bin "example.pmo" in
 	 let () = P.Model.save oc ps in
    0
