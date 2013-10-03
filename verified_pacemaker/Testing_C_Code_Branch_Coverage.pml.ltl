@@ -1,0 +1,70 @@
+#define p	imode == 0 
+#define q	imode == 1
+#define r	imode == 2 
+#define s	imode == 3
+#define t	imode == 4
+#define u	imode == 5
+#define v	imode == 8
+#define w	imode == 6
+#define x	endstate == 1
+
+	/*
+	 * Formula As Typed: []  ((p  || q || r || s || t || u || v || w) -><>  x)
+	 * The Never Claim Below Corresponds
+	 * To The Negated Formula !([]  ((p  || q || r || s || t || u || v || w) -><>  x))
+	 * (formalizing violations of the original)
+	 */
+
+never {    /* !([]  ((p  || q || r || s || t || u || v || w) -><>  x)) */
+T0_init:
+	if
+	:: (((! ((x)) && (p)) || (((! ((x)) && (q)) || (((! ((x)) && (r)) || (((! ((x)) && (s)) || (((! ((x)) && (t)) || (((! ((x)) && (u)) || (((! ((x)) && (v)) || (! ((x)) && (w)))))))))))))))) -> goto accept_S3
+	:: (1) -> goto T0_init
+	fi;
+accept_S3:
+	if
+	:: (! ((x))) -> goto accept_S3
+	fi;
+}
+
+#ifdef NOTES
+Use Load to open a file or a template.
+
+#endif
+#ifdef RESULT
+warning: for p.o. reduction to be valid the never claim must be stutter-invariant
+(never claims generated from LTL formulae are stutter-invariant)
+depth 0: Claim reached state 5 (line 343)
+depth 2: Claim reached state 9 (line 348)
+depth 112: Claim reached state 9 (line 348)
+
+(Spin Version 5.2.5 -- 17 April 2010)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	+
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 148 byte, depth reached 6059, errors: 0
+     3253 states, stored (3334 visited)
+      385 states, matched
+     3719 transitions (= visited+matched)
+       16 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.509	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.652	actual memory usage for states (unsuccessful compression: 128.20%)
+         	state-vector as stored = 194 byte + 16 byte overhead
+    2.000	memory used for hash table (-w19)
+    0.305	memory used for DFS stack (-m10000)
+    2.891	total actual memory usage
+
+
+pan: elapsed time 0.016 seconds
+pan: rate    208375 states/second
+pan: avg transition delay 4.3022e-006 usec
+
+#endif

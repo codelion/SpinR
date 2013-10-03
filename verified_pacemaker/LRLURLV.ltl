@@ -1,0 +1,116 @@
+#define p	lastpacedpulsev <= maxtime
+#define q	lastpacedpulsev > 0
+#define r	lastpacedpulsev >= mintime
+
+	/*
+	 * Formula As Typed: [] (p  && (q -> r))
+	 * The Never Claim Below Corresponds
+	 * To The Negated Formula !([] (p  && (q -> r)))
+	 * (formalizing violations of the original)
+	 */
+
+never {    /* !([] (p  && (q -> r))) */
+T0_init:
+	if
+	:: (((! ((p))) || (! ((r)) && (q) && ((! ((p))) || (! ((r)) && (q)))))) -> goto accept_all
+	:: (1) -> goto T0_init
+	fi;
+accept_all:
+	skip
+}
+
+#ifdef NOTES
+Use Load to open a file or a template.
+
+
+#endif
+#ifdef RESULT
+warning: for p.o. reduction to be valid the never claim must be stutter-invariant
+(never claims generated from LTL formulae are stutter-invariant)
+depth 0: Claim reached state 5 (line 268)
+
+(Spin Version 5.2.5 -- 17 April 2010)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	+
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 96 byte, depth reached 922, errors: 0
+      460 states, stored
+        1 states, matched
+      461 transitions (= stored+matched)
+        3 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.049	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.267	actual memory usage for states (unsuccessful compression: 542.77%)
+         	state-vector as stored = 592 byte + 16 byte overhead
+    2.000	memory used for hash table (-w19)
+    0.305	memory used for DFS stack (-m10000)
+    2.501	total actual memory usage
+
+unreached in proctype updatetimers
+	line 37, "pan.___", state 13, "avdelay = 0"
+	line 38, "pan.___", state 14, "lastpacedpulsea = 0"
+	line 42, "pan.___", state 20, "avdelay = (avdelay+100)"
+	line 47, "pan.___", state 32, "-end-"
+	(4 of 32 states)
+unreached in proctype environment
+	line 58, "pan.___", state 5, "lastpulse = timer"
+	line 58, "pan.___", state 6, "avdelay = 0"
+	line 62, "pan.___", state 12, "avdelay = -(1)"
+	line 105, "pan.___", state 67, "-end-"
+	(4 of 67 states)
+unreached in proctype sensor
+	line 117, "pan.___", state 23, "-end-"
+	(1 of 23 states)
+unreached in proctype pacegen
+	line 137, "pan.___", state 20, "lastpacedpulsea = timer"
+	line 137, "pan.___", state 21, "avdelay = 0"
+	line 146, "pan.___", state 35, "lastpacedpulsev = timer"
+	line 146, "pan.___", state 36, "avdelay = -(1)"
+	line 146, "pan.___", state 37, "sensev?_"
+	line 150, "pan.___", state 41, "lastpacedpulsev = timer"
+	line 150, "pan.___", state 42, "avdelay = -(1)"
+	line 159, "pan.___", state 56, "lastpacedpulsea = timer"
+	line 159, "pan.___", state 57, "avdelay = 0"
+	line 159, "pan.___", state 58, "sensea?_"
+	line 163, "pan.___", state 62, "lastpacedpulsea = timer"
+	line 163, "pan.___", state 63, "avdelay = 0"
+	line 172, "pan.___", state 77, "pulsev!1"
+	line 172, "pan.___", state 78, "lastpacedpulsev = timer"
+	line 172, "pan.___", state 79, "avdelay = -(1)"
+	line 172, "pan.___", state 80, "sensev?_"
+	line 176, "pan.___", state 84, "lastpacedpulsev = timer"
+	line 176, "pan.___", state 85, "avdelay = -(1)"
+	line 185, "pan.___", state 99, "pulsea!1"
+	line 185, "pan.___", state 100, "lastpacedpulsea = timer"
+	line 185, "pan.___", state 101, "avdelay = 0"
+	line 185, "pan.___", state 102, "sensea?_"
+	line 189, "pan.___", state 106, "lastpacedpulsea = timer"
+	line 189, "pan.___", state 107, "avdelay = 0"
+	line 198, "pan.___", state 121, "avdelay = 0"
+	line 198, "pan.___", state 122, "sensea?_"
+	line 202, "pan.___", state 126, "lastpacedpulsev = timer"
+	line 202, "pan.___", state 127, "avdelay = -(1)"
+	line 202, "pan.___", state 128, "sensev?_"
+	line 204, "pan.___", state 131, "lastpacedpulsev = timer"
+	line 204, "pan.___", state 132, "avdelay = -(1)"
+	line 204, "pan.___", state 133, "pulsev!1"
+	line 212, "pan.___", state 150, "-end-"
+	(33 of 150 states)
+unreached in proctype :init:
+	(0 of 6 states)
+unreached in proctype :never:
+	line 273, "pan.___", state 8, "-end-"
+	(1 of 8 states)
+
+pan: elapsed time 0 seconds
+0.00user 0.01system 0:00.03elapsed 50%CPU (0avgtext+0avgdata 12224maxresident)k
+0inputs+8outputs (0major+804minor)pagefaults 0swaps
+
+#endif

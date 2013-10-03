@@ -1,0 +1,149 @@
+#define p	sena == 1
+#define q	pula == 1
+#define r	avdelay == 0
+#define s	lastpacedpulsea == timer
+
+	/*
+	 * Formula As Typed: []  (p -> <>   (q && r && s))
+	 * The Never Claim Below Corresponds
+	 * To The Negated Formula !([]  (p -> <>   (q && r && s)))
+	 * (formalizing violations of the original)
+	 */
+
+never {    /* !([]  (p -> <>   (q && r && s))) */
+T0_init:
+	if
+	:: (((! ((q)) && (p)) || (((! ((r)) && (p)) || (! ((s)) && (p)))))) -> goto accept_S3
+	:: (1) -> goto T0_init
+	fi;
+accept_S3:
+	if
+	:: (((! ((q))) || (((! ((r))) || (! ((s))))))) -> goto accept_S3
+	fi;
+}
+
+#ifdef NOTES
+Use Load to open a file or a template.
+
+
+
+
+
+
+
+#endif
+#ifdef RESULT
+warning: for p.o. reduction to be valid the never claim must be stutter-invariant
+(never claims generated from LTL formulae are stutter-invariant)
+depth 0: Claim reached state 5 (line 291)
+depth 1233: Claim reached state 9 (line 296)
+depth 1275: Claim reached state 9 (line 296)
+
+(Spin Version 5.2.5 -- 17 April 2010)
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	+
+	assertion violations	+ (if within scope of claim)
+	acceptance   cycles 	+ (fairness disabled)
+	invalid end states	- (disabled by never claim)
+
+State-vector 96 byte, depth reached 3172, errors: 0
+     2410 states, stored (3236 visited)
+     1599 states, matched
+     4835 transitions (= visited+matched)
+        3 atomic steps
+hash conflicts:         3 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.257	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.361	actual memory usage for states (unsuccessful compression: 140.33%)
+         	state-vector as stored = 141 byte + 16 byte overhead
+    2.000	memory used for hash table (-w19)
+    0.305	memory used for DFS stack (-m10000)
+    2.598	total actual memory usage
+
+unreached in proctype updatetimers
+	line 31, "pan.___", state 4, "timer = 0"
+	line 32, "pan.___", state 5, "avdelay = -(1)"
+	line 32, "pan.___", state 6, "lastpulse = 0"
+	line 36, "pan.___", state 12, "timer = 0"
+	line 37, "pan.___", state 13, "avdelay = -(1)"
+	line 37, "pan.___", state 14, "lastpacedpulsev = 0"
+	line 38, "pan.___", state 15, "lastpulse = 0"
+	line 42, "pan.___", state 21, "avdelay = -(1)"
+	line 43, "pan.___", state 22, "lastpacedpulsev = 0"
+	line 57, "pan.___", state 47, "-end-"
+	(10 of 47 states)
+unreached in proctype environment
+	line 68, "pan.___", state 5, "lastpulse = timer"
+	line 68, "pan.___", state 6, "avdelay = 0"
+	line 68, "pan.___", state 8, "lastpulse = timer"
+	line 68, "pan.___", state 9, "avdelay = 0"
+	line 68, "pan.___", state 10, "pula = 1"
+	line 68, "pan.___", state 10, "timer = 0"
+	line 71, "pan.___", state 14, "avdelay = -(1)"
+	line 71, "pan.___", state 16, "avdelay = -(1)"
+	line 71, "pan.___", state 17, "pulv = 1"
+	line 71, "pan.___", state 17, "timer = 0"
+	line 82, "pan.___", state 30, "lastpulse = timer"
+	line 82, "pan.___", state 31, "avdelay = 0"
+	line 82, "pan.___", state 32, "pula = 1"
+	line 86, "pan.___", state 36, "avdelay = -(1)"
+	line 86, "pan.___", state 37, "timer = 0"
+	line 111, "pan.___", state 73, "-end-"
+	(14 of 73 states)
+unreached in proctype sensor
+	line 119, "pan.___", state 10, "senv = 1"
+	line 119, "pan.___", state 11, "pulv = 0"
+	line 123, "pan.___", state 23, "-end-"
+	(3 of 23 states)
+unreached in proctype pacegen
+	line 133, "pan.___", state 5, "lastpacedpulsev = timer"
+	line 133, "pan.___", state 6, "avdelay = -(1)"
+	line 133, "pan.___", state 7, "pulv = 1"
+	line 143, "pan.___", state 20, "lastpacedpulsea = timer"
+	line 143, "pan.___", state 21, "avdelay = 0"
+	line 143, "pan.___", state 22, "pula = 1"
+	line 152, "pan.___", state 34, "pulv = 1"
+	line 152, "pan.___", state 35, "lastpacedpulsev = timer"
+	line 152, "pan.___", state 36, "avdelay = -(1)"
+	line 160, "pan.___", state 47, "lastpacedpulsev = timer"
+	line 160, "pan.___", state 48, "avdelay = -(1)"
+	line 165, "pan.___", state 55, "lastpacedpulsev = timer"
+	line 165, "pan.___", state 56, "avdelay = -(1)"
+	line 165, "pan.___", state 57, "pulv = 1"
+	line 173, "pan.___", state 69, "lastpacedpulsea = timer"
+	line 173, "pan.___", state 70, "avdelay = 0"
+	line 178, "pan.___", state 77, "lastpacedpulsea = timer"
+	line 178, "pan.___", state 78, "avdelay = 0"
+	line 178, "pan.___", state 79, "pula = 1"
+	line 186, "pan.___", state 91, "pulv = 1"
+	line 186, "pan.___", state 92, "lastpacedpulsev = timer"
+	line 186, "pan.___", state 93, "avdelay = -(1)"
+	line 191, "pan.___", state 100, "lastpacedpulsev = timer"
+	line 191, "pan.___", state 101, "avdelay = -(1)"
+	line 191, "pan.___", state 102, "pulv = 1"
+	line 212, "pan.___", state 137, "avdelay = 0"
+	line 212, "pan.___", state 138, "sensea?_"
+	line 216, "pan.___", state 142, "lastpacedpulsev = timer"
+	line 216, "pan.___", state 143, "avdelay = -(1)"
+	line 216, "pan.___", state 144, "sensev?_"
+	line 218, "pan.___", state 147, "lastpacedpulsev = timer"
+	line 218, "pan.___", state 148, "avdelay = -(1)"
+	line 218, "pan.___", state 149, "pulsev!1"
+	line 226, "pan.___", state 166, "-end-"
+	(34 of 166 states)
+unreached in proctype :init:
+	(0 of 6 states)
+unreached in proctype :never:
+	line 298, "pan.___", state 11, "-end-"
+	(1 of 11 states)
+
+pan: elapsed time 0.03 seconds
+pan: rate 107866.67 states/second
+pan: avg transition delay 6.2048e-06 usec
+0.00user 0.02system 0:00.07elapsed 34%CPU (0avgtext+0avgdata 12912maxresident)k
+0inputs+16outputs (0major+847minor)pagefaults 0swaps
+
+#endif
