@@ -1,5 +1,6 @@
 SpinR
 =====
+[![alt text](https://zenodo.org/badge/3777/codelion/SpinR.png "doi")](http://dx.doi.org/10.5281/zenodo.9830)
 
 Spin with Refinement
 
