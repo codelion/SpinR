@@ -1,4 +1,4 @@
-List of Files Containted - 
+List of Files Contained - 
 
 AAI.ltl
 AAI_H.ltl
