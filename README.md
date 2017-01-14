@@ -1,6 +1,6 @@
 SpinR
 =====
-[![alt text](https://zenodo.org/badge/3777/codelion/SpinR.png "doi")](http://dx.doi.org/10.5281/zenodo.9830)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.9830.svg)](https://doi.org/10.5281/zenodo.9830)
 
 Spin with Refinement
 
